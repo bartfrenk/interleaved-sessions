@@ -4,6 +4,7 @@
 {-# LANGUAGE LambdaCase             #-}
 {-# LANGUAGE MultiParamTypeClasses  #-}
 {-# LANGUAGE TemplateHaskell        #-}
+
 module Scenario.Utils where
 
 import           Control.Distributed.Process.Lifted       hiding (try)

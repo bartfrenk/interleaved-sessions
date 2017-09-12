@@ -1,8 +1,8 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE OverloadedStrings #-}
 
-module Scenario.SQL where
+module Main where
 
 import           BasicPrelude
 import           Data.Binary
@@ -11,10 +11,8 @@ import           Database.HDBC.PostgreSQL
 import           GHC.Generics             (Generic)
 import           System.Microtimer
 
-
-import           Scenario.Process         (Agent (..), exec)
-import           Scenario.Terms
-import           Scenario.Types
+import           Scenario
+import           Shared.Types
 
 newtype SQL = SQL String deriving (Typeable, Generic)
 
@@ -71,3 +69,6 @@ programA = do
 
 test :: IO [(Int, Result)]
 test = exec (agentSQL docker) programA
+
+main :: IO ()
+main = test >>= mapM_ print

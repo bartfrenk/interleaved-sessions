@@ -1,8 +1,8 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE RecordWildCards            #-}
-module Scenario.Types
-  ( module Scenario.Types
+module Shared.Types
+  ( module Shared.Types
   , module System.Clock) where
 
 import           Control.Monad.Trans
