@@ -1,0 +1,17 @@
+#+TITLE: Common SQL consistency violations
+#+AUTHOR: Bart Frenk
+#+EMAIL: bart.frenk@gmail.com
+
+* The ANSI SQL standard
+
+Some history.
+
+* Dirty reads
+
+Think this cannot be done in PostgreSQL
+
+* Unrepeatable reads
+
+* Phantoms
+
+* Aborting due to serializability violations
