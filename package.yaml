@@ -47,6 +47,7 @@ default-extensions:
   - MultiWayIf
   - OverloadedStrings
   - MonoLocalBinds
+  - DeriveGeneric
 
 ghc-options: -Wall -fno-warn-name-shadowing
 
