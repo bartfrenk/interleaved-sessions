@@ -1,0 +1,76 @@
+name: interleaved-sessions
+version: 0.1.0.0
+github: "bartfrenk/interleaved-sessions"
+license: BSD3
+author: "Bart Frenk"
+maintainer: "bart.frenk@gmail.com"
+copyright: "2018 Bart Frenk"
+
+extra-source-files:
+- README.md
+
+# Metadata used when publishing your package
+synopsis: Running multiple clients against a database
+category: Distributed
+
+description: >-
+  Please see the README on GitHub at <https://github.com/bartfrenk/hs-raft>
+
+dependencies:
+  - base >= 4.7 && < 5
+  - basic-prelude
+  - binary
+  - clock
+  - containers
+  - distributed-process
+  - distributed-process-lifted
+  - distributed-process-monad-control
+  - distributed-process-simplelocalnet
+  - distributed-static
+  - free
+  - lens
+  - monad-control
+  - mtl
+  - network
+  - network-transport-tcp
+  - network-transport
+  - exceptions
+  - uuid
+  - HDBC
+  - HDBC-postgresql
+  - microtimer
+
+default-extensions:
+  - DuplicateRecordFields
+  - NamedFieldPuns
+  - LambdaCase
+  - MultiWayIf
+  - OverloadedStrings
+  - MonoLocalBinds
+
+ghc-options: -Wall -fno-warn-name-shadowing
+
+library:
+  source-dirs: src
+
+executables:
+  multi-client:
+    main: SQL.hs
+    source-dirs: app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - interleaved-sessions
+
+tests:
+  interleaved-sessions-test:
+    main: Spec.hs
+    source-dirs: test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - interleaved-sessions

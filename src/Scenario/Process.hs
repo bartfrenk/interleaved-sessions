@@ -145,9 +145,10 @@ exec' agentProcess program =
           liftIO $ modifyIORef current (++ reports)
 
         createTransport host service = do
-          result <- liftIO $ TCP.createTransport host service TCP.defaultTCPParameters
+          result <- liftIO $ TCP.createTransport host service fn TCP.defaultTCPParameters
           case result of
             Left err        -> throwM err
             Right transport -> return transport
+          where fn = const (host, service)
 
         runMaster act settings = evalStateT (runReaderT act settings)
